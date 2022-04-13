@@ -56,7 +56,7 @@ public class StudentController {
 
     }
     @RequestMapping("/showFormForUpdate")
-    public String showFormforUpdate(@RequestParam("studentId") int id,Model theModel) {
+    public String showFormforUpdate(@RequestParam("studentId") Long id,Model theModel) {
         Student theStudent = studentService.findById(id);
 
         theModel.addAttribute("Student",theStudent);
@@ -65,7 +65,7 @@ public class StudentController {
 
     }
     @PostMapping("/save")
-    public String saveStudents(@RequestParam("id") int id,
+    public String saveStudents(@RequestParam("id") Long id,
                                @RequestParam("fname") String fname,@RequestParam("lname") String lname,@RequestParam("course") String course,@RequestParam("country") String country) {
 
         System.out.println(id);
@@ -89,7 +89,7 @@ public class StudentController {
 
 
     @RequestMapping("/delete")
-    public String delete(@RequestParam("studentId") int theId) {
+    public String delete(@RequestParam("studentId") Long theId) {
 
         // delete the Student
         studentService.deleteById(theId);
